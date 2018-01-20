@@ -1,0 +1,5 @@
+<div *ngIf="player">
+  <label>{{player.totalScore()}}</label>:<label><input [(ngModel)]="monster" placeholder="0"></label>
+  <label>Wynik: {{duel}}</label>
+  <button (click)="defeat()">pokonaj</button>
+</div>

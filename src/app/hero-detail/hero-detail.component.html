@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{player.name}}</mat-card-title>
+    <mat-card-subtitle>Poziom: {{player.level}}</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Kajdan" [(ngModel)]="player.equipment.neckler">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Kask" [(ngModel)]="player.equipment.helmet">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Rękawiczki" [(ngModel)]="player.equipment.glowes">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Ręka prawa" [(ngModel)]="player.equipment.mainHand">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Klata" [(ngModel)]="player.equipment.chest">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Ręka lewa" [(ngModel)]="player.equipment.offHand">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Trzewiki" [(ngModel)]="player.equipment.shoes">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Gacie" [(ngModel)]="player.equipment.legs">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Pierścionek" [(ngModel)]="player.equipment.ring">
+        </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+      <button mat-button
+      (click)="delete(player)">Usuń</button>
+  </mat-card-actions>
+</mat-card>

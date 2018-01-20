@@ -1,0 +1,19 @@
+<div>
+    <mat-form-field class="example-full-width">
+      <input #playerName 
+        matInput 
+        placeholder="Nazwa gracza" 
+        (keyup.enter)="add(playerName.value); playerName.value=''">
+    </mat-form-field>
+    <button (click)="add(playerName.value); playerName.value=''" 
+      mat-raised-button 
+      color="primary">Dodaj
+    </button>
+</div>
+<div *ngFor="let player of players">
+  <app-hero-detail 
+    [player]="player"
+    (remove)="remove($event)" >
+  </app-hero-detail>
+</div>
+<div><app-monster-fight [player]="current"></app-monster-fight></div>
