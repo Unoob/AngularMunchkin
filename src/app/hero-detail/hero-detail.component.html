@@ -6,33 +6,7 @@
   
   <mat-card-content>
     <div>
-        <mat-form-field>
-            <input matInput placeholder="Kajdan" [(ngModel)]="player.equipment.neckler">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Kask" [(ngModel)]="player.equipment.helmet">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Rękawiczki" [(ngModel)]="player.equipment.glowes">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Ręka prawa" [(ngModel)]="player.equipment.mainHand">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Klata" [(ngModel)]="player.equipment.chest">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Ręka lewa" [(ngModel)]="player.equipment.offHand">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Trzewiki" [(ngModel)]="player.equipment.shoes">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Gacie" [(ngModel)]="player.equipment.legs">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Pierścionek" [(ngModel)]="player.equipment.ring">
-        </mat-form-field>
+        <app-equipment-list [playerEquipment]="player.equipment"></app-equipment-list>
     </div>
   </mat-card-content>
   <mat-card-actions>

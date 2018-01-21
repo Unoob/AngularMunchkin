@@ -27,7 +27,7 @@ export class MonsterFightComponent implements OnInit {
     }
     return player > monster ? FightResult.WIN : FightResult.LOSE;
   }
-  get duel():string{
+  duel():string{
     console.log('duel')
     return this.fightResult()+'';
   }

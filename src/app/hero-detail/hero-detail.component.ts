@@ -14,6 +14,9 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit() {
     
   }
+  addEquipment(equipment:any){
+    console.log(equipment);
+  }
   delete(player:Player):void{
     this.remove.emit(player);
   }
