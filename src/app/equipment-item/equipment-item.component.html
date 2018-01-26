@@ -7,6 +7,18 @@
         (keyup)="bonusChange(item.bonus)">
 </mat-form-field>
 <button mat-icon-button
+    (click)="changeItemBonus(1)"
+    class="increment" 
+    title="Wiecej mocy">
+        <mat-icon aria-label="Increment">add</mat-icon>
+</button>
+<button mat-icon-button
+    (click)="changeItemBonus(-1);"
+    class="decrement" 
+    title="Mniej mocy">
+        <mat-icon aria-label="Decrement">remove</mat-icon>
+</button>
+<button mat-icon-button
     (click)="takeOfItem(item)"
     class="remove" 
     title="Usuń">

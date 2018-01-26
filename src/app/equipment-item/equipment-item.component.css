@@ -1,3 +1,9 @@
 .remove:hover{
     color:firebrick;
 }
+.increment:hover{
+    color:rgb(18, 104, 216);
+}
+.decrement:hover{
+    color:rgb(231, 144, 14);
+}
