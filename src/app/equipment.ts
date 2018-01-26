@@ -5,8 +5,7 @@ export class Equipment{
         public name:string,
         public price:number,
         public kind:EquipmentKind,
-        public bonus:number=0,
+        public bonus:number=null,
         public size:EquipmentSize=EquipmentSize.SMALL){
-
     }
 }

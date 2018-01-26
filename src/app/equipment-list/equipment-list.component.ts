@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EquipmentKind } from '../equipmentEnums';
 import { Equipment } from '../equipment';
+import { EquipmentManager } from '../equipment-manager';
 
 @Component({
   selector: 'app-equipment-list',
@@ -19,18 +20,25 @@ export class EquipmentListComponent implements OnInit {
   ];
   selected:any;
   @Input()playerEquipment:Equipment[];
+  eqManager:EquipmentManager;
+  equipPower:number = 0;
   constructor() { }
 
   ngOnInit() {
+    this.eqManager = new EquipmentManager(this.playerEquipment);
   }
-  takeOfItem(item:Equipment){
 
-    let index = this.playerEquipment.indexOf(item);
-    this.playerEquipment.splice(index,1);
+  calculateItemScore():void{
+    this.equipPower = this.eqManager.itemsScore();
   }
+
+  takeOfItem(item:Equipment){
+    this.eqManager.removeItem(item);
+    this.calculateItemScore();
+  }
+
   equipItem(item:any){
     if(!item)return;
-    
-    this.playerEquipment.push(new Equipment(item.name,0,item.value));
+    this.eqManager.addItem(new Equipment(item.name,0,item.value));
   }
 }

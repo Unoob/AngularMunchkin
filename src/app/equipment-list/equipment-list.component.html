@@ -3,25 +3,16 @@
     placeholder="Przedmiot" 
     [(value)]="selected" 
     (selectionChange)="equipItem(selected);selected={}">
-      <!-- <mat-option>ss</mat-option> -->
       <mat-option *ngFor="let item of equipments" [value]="item">
         {{ item.name }}
       </mat-option>
   </mat-select>
 </mat-form-field>
-  <label>{{selected|json}}</label>
+  <label>{{equipPower}}</label>
 <div *ngFor="let item of playerEquipment">
-    <mat-form-field class="example-full-width">
-        <input
-          matInput 
-          [(ngModel)]="item.bonus==0?'':item.bonus"
-          [placeholder]="item.name">
-      </mat-form-field>
-      <button mat-icon-button
-        (click)="takeOfItem(item)"
-        class="remove" 
-        title="Usuń">
-          <mat-icon aria-label="Delete">clear</mat-icon>
-      </button>
+  <app-equipment-item 
+  [item]="item" 
+  (onBonusChange)="calculateItemScore()"
+  (takeOf)="takeOfItem($event)"></app-equipment-item>
 </div>
 

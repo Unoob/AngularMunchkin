@@ -1,1 +1,14 @@
-<div>item</div>
+<mat-form-field class="example-full-width">
+    <input
+        type="number"
+        matInput 
+        [(ngModel)]="item.bonus"
+        [placeholder]="item.name"
+        (keyup)="bonusChange(item.bonus)">
+</mat-form-field>
+<button mat-icon-button
+    (click)="takeOfItem(item)"
+    class="remove" 
+    title="Usuń">
+        <mat-icon aria-label="Delete">clear</mat-icon>
+</button>
