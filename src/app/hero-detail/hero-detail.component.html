@@ -1,12 +1,14 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>{{player.name}}</mat-card-title>
-    <mat-card-subtitle>Poziom: {{player.level}}</mat-card-subtitle>
+    <mat-card-subtitle>Poziom: {{player.level}} Bonus: {{eqPower}}</mat-card-subtitle>
   </mat-card-header>
   
   <mat-card-content>
     <div>
-        <app-equipment-list [playerEquipment]="player.equipment"></app-equipment-list>
+        <app-equipment-list 
+        (onBonusChange)="itemBonus($event)"
+        [playerEquipment]="player.equipment"></app-equipment-list>
     </div>
   </mat-card-content>
   <mat-card-actions>

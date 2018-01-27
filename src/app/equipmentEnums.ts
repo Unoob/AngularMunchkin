@@ -5,7 +5,8 @@ export enum EquipmentKind{
     NECK,
     CHEST,
     BOOTS,
-    HEAD
+    HEAD,
+    COMPANION
 }
 export enum EquipmentSize{
     BIG,

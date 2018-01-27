@@ -9,14 +9,17 @@ import { Player } from '../player';
 export class HeroDetailComponent implements OnInit {
   @Input()player:Player;
   @Output()remove:EventEmitter<any> = new EventEmitter();
+  
+  eqPower:number=0;
   constructor() { }
 
   ngOnInit() {
     
   }
-  addEquipment(equipment:any){
-    console.log(equipment);
+  itemBonus(bonus:number){
+    this.eqPower=bonus;
   }
+
   delete(player:Player):void{
     this.remove.emit(player);
   }

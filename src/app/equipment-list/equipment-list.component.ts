@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EquipmentKind } from '../equipmentEnums';
 import { Equipment } from '../equipment';
 import { EquipmentManager } from '../equipment-manager';
@@ -16,12 +16,13 @@ export class EquipmentListComponent implements OnInit {
     {value:EquipmentKind.HEAD, name:'Hełm'},
     {value:EquipmentKind.BOOTS, name:'Buty'},
     {value:EquipmentKind.RING, name:'Pierścień'},
-    {value:EquipmentKind.NECK, name:'Naszyjnik'}
+    {value:EquipmentKind.NECK, name:'Naszyjnik'},
+    {value:EquipmentKind.COMPANION, name:'Towarzysz'}
   ];
   selected:any;
   @Input()playerEquipment:Equipment[];
+  @Output()onBonusChange = new EventEmitter<number>();
   eqManager:EquipmentManager;
-  equipPower:number = 0;
   constructor() { }
 
   ngOnInit() {
@@ -29,7 +30,7 @@ export class EquipmentListComponent implements OnInit {
   }
 
   calculateItemScore():void{
-    this.equipPower = this.eqManager.itemsScore();
+    this.onBonusChange.emit(this.eqManager.itemsScore())
   }
 
   takeOfItem(item:Equipment){
