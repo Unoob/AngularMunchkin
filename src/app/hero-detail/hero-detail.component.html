@@ -6,6 +6,9 @@
   
   <mat-card-content>
     <div>
+      <app-hero-race></app-hero-race>
+    </div>
+    <div>
         <app-equipment-list 
         (onBonusChange)="itemBonus($event)"
         [playerEquipment]="player.equipment"></app-equipment-list>
