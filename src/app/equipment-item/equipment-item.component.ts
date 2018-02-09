@@ -26,10 +26,15 @@ export class EquipmentItemComponent implements OnInit {
     console.log('takeOf')
     this.takeOf.emit(item);
   }
+
   changeItemBonus(value:number){
-    this.item.bonus = this.item.bonus + (value);
+    var newValue = this.item.bonus + (value);
+    if(newValue<0)return;
+    
+    this.item.bonus = newValue===0 ? null : newValue;
     this.onBonusChange.emit(this.item.bonus);
   }
+
   bonusChange(bonus:number){
     if (!this.bonus) {
       Observable.create(observer => {

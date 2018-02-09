@@ -10,10 +10,12 @@
       color="primary">Dodaj
     </button>
 </div>
-<div *ngFor="let player of players">
-  <app-hero-detail 
-    [player]="player"
-    (remove)="remove($event)" >
-  </app-hero-detail>
+<div fxLayout="row wrap" fxLayoutAlign="space-around start">
+  <div *ngFor="let player of players">
+    <app-hero-detail 
+      [player]="player"
+      (remove)="remove($event)" >
+    </app-hero-detail>    
+  </div>
 </div>
 <!-- <div><app-monster-fight [player]="current"></app-monster-fight></div> -->
