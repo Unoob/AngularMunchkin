@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { EquipmentKind } from '../equipmentEnums';
-import { Equipment } from '../equipment';
+import { EquipmentKind } from '../models/equipmentEnums';
+import { Equipment } from '../models/equipment';
 import { EquipmentManager } from '../equipment-manager';
 
 @Component({

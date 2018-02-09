@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Equipment } from '../equipment';
+import { Equipment } from '../models/equipment';
 import { Subject } from 'rxjs/Subject';
 
 import { Observable } from 'rxjs/Observable';

@@ -1,5 +1,5 @@
-import { Equipment } from "./equipment";
-import { EquipmentKind } from "./equipmentEnums";
+import { Equipment } from "./models/equipment";
+import { EquipmentKind } from "./models/equipmentEnums";
 
 
 export class EquipmentManager {
