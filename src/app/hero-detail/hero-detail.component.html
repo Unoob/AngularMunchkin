@@ -6,7 +6,16 @@
   
   <mat-card-content>
     <div>
-      <app-hero-race></app-hero-race>
+      <app-select-list
+        [placeholder]="'Rasa'"
+        [options]="heroRaces"
+        [maxSelect]="2">
+      </app-select-list>
+      <app-select-list
+        [placeholder]="'Klasa'"
+        [options]="heroClas"
+        [maxSelect]="2">
+      </app-select-list>
     </div>
     <div>
         <app-equipment-list 

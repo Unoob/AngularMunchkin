@@ -17,7 +17,7 @@ import { HeroListComponent } from './hero-list/hero-list.component';
 import { MonsterFightComponent } from './monster-fight/monster-fight.component';
 import { EquipmentItemComponent } from './equipment-item/equipment-item.component';
 import { EquipmentListComponent } from './equipment-list/equipment-list.component';
-import { HeroRaceComponent } from './hero-race/hero-race.component';
+import { SelectListComponent } from './select-list/select-list.component';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { HeroRaceComponent } from './hero-race/hero-race.component';
     MonsterFightComponent,
     EquipmentItemComponent,
     EquipmentListComponent,
-    HeroRaceComponent
+    SelectListComponent
   ],
   imports: [
     BrowserModule,
