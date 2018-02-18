@@ -19,6 +19,7 @@ export class SelectListComponent implements OnInit {
   @Input()placeholder;
   @Output()onSelect=new EventEmitter<SelectListItem[]>();
   data:SelectItem[]=[];
+  selected:SelectListItem[]=[];
   constructor() {
   }
 
@@ -27,9 +28,14 @@ export class SelectListComponent implements OnInit {
   }
 
   onSelectChange(value:SelectItem[]){
-    //console.log(value);
     this.toggleAvailable(this.getUnselected(value),value.length===this.maxSelect);
-    this.onSelect.emit(value.map(i => i as SelectListItem));
+    this.selected = value.map((i) => {return new SelectListItem(i.value,i.text)});
+  }
+  
+  onOpenedChange($event:boolean){
+    if(!$event){
+      this.onSelect.emit(this.selected);
+    }
   }
 
   private getUnselected(selected:SelectItem[]):SelectItem[]{

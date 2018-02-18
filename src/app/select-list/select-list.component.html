@@ -2,6 +2,7 @@
   <mat-select 
     [placeholder]="placeholder" 
     multiple
+    (openedChange)="onOpenedChange($event)"
     (selectionChange)="onSelectChange($event.value)">
     <mat-option *ngFor="let item of data"
       [disabled]="item.disable"

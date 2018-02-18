@@ -4,7 +4,7 @@ export enum HeroRace{
     HOBBIT
 }   
 
-export enum HeroClas{
+export enum HeroClass{
     WARRIOR,
     PRIEST,
     MAGE,
