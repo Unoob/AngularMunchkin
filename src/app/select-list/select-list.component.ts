@@ -27,9 +27,9 @@ export class SelectListComponent implements OnInit {
   }
 
   onSelectChange(value:SelectItem[]){
-    console.log(value);
+    //console.log(value);
     this.toggleAvailable(this.getUnselected(value),value.length===this.maxSelect);
-    this.onSelect.emit(value);
+    this.onSelect.emit(value.map(i => i as SelectListItem));
   }
 
   private getUnselected(selected:SelectItem[]):SelectItem[]{

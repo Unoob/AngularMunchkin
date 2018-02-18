@@ -9,12 +9,14 @@
       <app-select-list
         [placeholder]="'Rasa'"
         [options]="heroRaces"
-        [maxSelect]="2">
+        [maxSelect]="2"
+        (onSelect)="onRaceChange($event)">
       </app-select-list>
       <app-select-list
         [placeholder]="'Klasa'"
         [options]="heroClas"
-        [maxSelect]="2">
+        [maxSelect]="2"
+        (onSelect)="onClassChange($event)">
       </app-select-list>
     </div>
     <div>
