@@ -2,6 +2,7 @@
     <input
         type="number"
         matInput 
+        [readonly]="item.disable"
         [(ngModel)]="item.bonus"
         [placeholder]="item.name"
         (keyup)="bonusChange(item.bonus)">
@@ -18,9 +19,20 @@
     title="Mniej mocy">
         <mat-icon aria-label="Decrement">remove</mat-icon>
 </button>
-<button mat-icon-button
-    (click)="takeOfItem(item)"
-    class="remove" 
-    title="Usuń">
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item
+        (click)="disableItem(item)"
+        class="disable">
+        <mat-icon aria-label="Disable">{{item.disable? 'check_box_outline_blank' : 'check_box'}}</mat-icon>
+        <span>{{item.disable? 'Załóż' : 'Zdejmij'}}</span>
+    </button>
+    <button mat-menu-item
+        (click)="takeOfItem(item)"
+        class="remove">
         <mat-icon aria-label="Delete">clear</mat-icon>
-</button>
+        <span>Usuń</span>
+    </button>
+  </mat-menu>

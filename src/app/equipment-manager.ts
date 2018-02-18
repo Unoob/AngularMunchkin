@@ -17,7 +17,7 @@ export class EquipmentManager {
     }
     
     itemsScore():number{
-        return this.equipments.reduce((p,c)=>{return p+c.bonus;},0);
+        return this.equipments.filter(w=>!w.disable).reduce((p,c)=>{return p+c.bonus;},0);
     }
 
     private existItem(itemKind:EquipmentKind):boolean{        

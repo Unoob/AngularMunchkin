@@ -1,6 +1,7 @@
 import { EquipmentKind, EquipmentSize } from "./equipmentEnums";
 
 export class Equipment{
+    disable:boolean=false;
     constructor(
         public name:string,
         public price:number,

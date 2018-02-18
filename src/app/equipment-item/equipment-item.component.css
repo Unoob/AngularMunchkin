@@ -1,5 +1,7 @@
-.remove:hover{
+.remove:hover .mat-icon{
     color:firebrick;
+}.disable:hover .mat-icon{
+    color:darkgray;
 }
 .increment:hover{
     color:rgb(18, 104, 216);

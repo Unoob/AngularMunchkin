@@ -22,6 +22,11 @@ export class EquipmentItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  disableItem(item:Equipment){
+      item.disable=!item.disable;
+      this.onBonusChange.emit(0);
+  }
+
   takeOfItem(item:Equipment){
     console.log('takeOf')
     this.takeOf.emit(item);

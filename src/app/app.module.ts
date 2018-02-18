@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -37,6 +38,7 @@ import { SelectListComponent } from './select-list/select-list.component';
     FlexLayoutModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatMenuModule,
     MatButtonModule,
     MatCardModule,
     MatSelectModule,

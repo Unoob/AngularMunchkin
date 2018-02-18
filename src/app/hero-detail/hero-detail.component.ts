@@ -33,14 +33,13 @@ export class HeroDetailComponent implements OnInit {
    }
 
   ngOnInit() {
-    
   }
   onRaceChange(races:SelectListItem[]){
     //console.log(races);
     this.heroRace = races.map(r=>r.value);    
-    this.calculateCurrentRaceBonus();
-    
+    this.calculateCurrentRaceBonus();    
   }
+
   onClassChange(classes:SelectListItem[]){
     //console.log(classes);
     this.heroClasses = classes.map(c=>c.value);
@@ -52,6 +51,10 @@ export class HeroDetailComponent implements OnInit {
 
   delete(player:Player):void{
     this.remove.emit(player);
+  }
+
+  get CurrentPower():number{
+    return this.player.level + this.eqPower + this.raceBonus;
   }
 
   private calculateCurrentRaceBonus(){
