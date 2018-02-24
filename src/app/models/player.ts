@@ -8,10 +8,6 @@ export class Player{
         public equipment:Equipment[]=[]
     ){ }
 
-    race:number;
-    class:number;
-
-    totalScore():number{
-        return this.level;
-    }
+    race:number[]=[];
+    class:number[]=[];
 }

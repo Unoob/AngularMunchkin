@@ -20,7 +20,7 @@ export class MonsterFightComponent implements OnInit {
   }
   private fightResult():FightResult{
     let monster = (+this.monster) + (+this.monsterModify||0);
-    let player = this.player.totalScore() + (+this.playerModify||0);
+    let player =0; //this.player.totalScore() + (+this.playerModify||0);
     console.log(monster);
     if(player === monster){
       return FightResult.TIE;

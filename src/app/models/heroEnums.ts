@@ -1,10 +1,14 @@
-export enum HeroRace{
+export enum HeroRace {
     DWARF,
     ELF,
-    HOBBIT
-}   
+    HOBBIT, 
+    ZAMORYJCZYK, 
+    CIMMERIAN, 
+    CUSHITE, 
+    STYGIJCZYK
+}
 
-export enum HeroClass{
+export enum HeroClass {
     WARRIOR,
     PRIEST,
     MAGE,

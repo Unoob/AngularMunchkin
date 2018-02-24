@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{player.name}}</mat-card-title>
+    <mat-card-title>{{player.name}} {{CurrentPower}}</mat-card-title>
     <mat-card-subtitle>Poziom: {{player.level}} Bonus: {{eqPower}} Rasa: {{raceBonus}}</mat-card-subtitle>
   </mat-card-header>
   
@@ -14,7 +14,7 @@
       </app-select-list>
       <app-select-list
         [placeholder]="'Klasa'"
-        [options]="heroClas"
+        [options]="heroClasses"
         [maxSelect]="2"
         (onSelect)="onClassChange($event)">
       </app-select-list>
@@ -29,4 +29,5 @@
       <button mat-button
       (click)="delete(player)">Usuń</button>
   </mat-card-actions>
+  <!-- <img height="200" src="../../assets/content/mage.jpg"> -->
 </mat-card>

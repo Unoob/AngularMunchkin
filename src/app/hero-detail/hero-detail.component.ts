@@ -10,57 +10,57 @@ import { RaceManager } from '../race-manager';
   styleUrls: ['./hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
-  @Input()player:Player;
-  @Output()remove:EventEmitter<any> = new EventEmitter();
-  raceBonusManager:RaceManager;
-  heroRaces:SelectListItem[]=[
-    new SelectListItem(HeroRace.ELF,"Elf"),
-    new SelectListItem(HeroRace.DWARF,"Krasnolud"),
-    new SelectListItem(HeroRace.HOBBIT,"Niziołek")
-  ];    
-  heroClas:SelectListItem[]=[
-    new SelectListItem(HeroClass.MAGE,"Czarodziej"),
-    new SelectListItem(HeroClass.PRIEST,"Kapłan"),
-    new SelectListItem(HeroClass.WARRIOR,"Wojownik"),
-    new SelectListItem(HeroClass.ROUGE,"Złodziej")
+  @Input() player: Player;
+  @Output() remove: EventEmitter<any> = new EventEmitter();
+  raceBonusManager: RaceManager;
+  heroRaces: SelectListItem[] = [
+    new SelectListItem(HeroRace.ZAMORYJCZYK, "Zamoryjczyk"),
+    new SelectListItem(HeroRace.CIMMERIAN, "Cymeryjczyk"),
+    new SelectListItem(HeroRace.CUSHITE, "Kuszyta"),
+    new SelectListItem(HeroRace.STYGIJCZYK, "Stygijczyk")
   ];
-  eqPower:number=0;
-  raceBonus:number=0;
-  heroRace:Array<HeroRace>=[];
-  heroClasses:Array<HeroClass>=[];
+  heroClasses: SelectListItem[] = [
+    new SelectListItem(HeroClass.MAGE, "Czarodziej"),
+    new SelectListItem(HeroClass.PRIEST, "Kapłan"),
+    new SelectListItem(HeroClass.WARRIOR, "Wojownik"),
+    new SelectListItem(HeroClass.ROUGE, "Złodziej")
+  ];
+  eqPower: number = 0;
+  raceBonus: number = 0;
+
   constructor() {
     this.raceBonusManager = new RaceManager();
-   }
+  }
 
   ngOnInit() {
   }
-  onRaceChange(races:SelectListItem[]){
+  onRaceChange(races: SelectListItem[]) {
     //console.log(races);
-    this.heroRace = races.map(r=>r.value);    
-    this.calculateCurrentRaceBonus();    
-  }
-
-  onClassChange(classes:SelectListItem[]){
-    //console.log(classes);
-    this.heroClasses = classes.map(c=>c.value);
+    this.player.race = races.map(r => r.value);
     this.calculateCurrentRaceBonus();
   }
-  itemBonus(bonus:number){
-    this.eqPower=bonus;
+
+  onClassChange(classes: SelectListItem[]) {
+    //console.log(classes);
+    this.player.class = classes.map(c => c.value);
+    this.calculateCurrentRaceBonus();
+  }
+  itemBonus(bonus: number) {
+    this.eqPower = bonus;
   }
 
-  delete(player:Player):void{
+  delete(player: Player): void {
     this.remove.emit(player);
   }
 
-  get CurrentPower():number{
+  get CurrentPower(): number {
     return this.player.level + this.eqPower + this.raceBonus;
   }
 
-  private calculateCurrentRaceBonus(){
-    this.raceBonus=0;
-    for(let i =0;i<this.heroRace.length;i++){
-      this.raceBonus += this.raceBonusManager.CalculateBonusRace(this.heroRace[i],this.heroClasses);
+  private calculateCurrentRaceBonus() {
+    this.raceBonus = 0;
+    for (let i = 0; i < this.player.race.length; i++) {
+      this.raceBonus += this.raceBonusManager.CalculateBonusRace(this.player.race[i], this.player.class);
     }
   }
 }

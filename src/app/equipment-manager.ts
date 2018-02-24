@@ -27,8 +27,10 @@ export class EquipmentManager {
                 return !((match.length < 2 ) && !this.findItemKind(EquipmentKind.TWO_HAND)[0]);
             }                
             case EquipmentKind.TWO_HAND:{
-                return !!(match[0] || this.existItem(EquipmentKind.ONE_HAND));
+                return !!(match[0] || this.findItemKind(EquipmentKind.ONE_HAND)[0]);
             }
+            case EquipmentKind.RING:
+                return false;
             default:
                 return !!match[0];
         }        

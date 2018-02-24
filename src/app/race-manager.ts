@@ -3,9 +3,10 @@ import {HeroRace, HeroClass} from "./models/heroEnums";
 export class RaceManager {
     racesBonus = {};
     constructor() {
-        this.racesBonus[HeroRace.DWARF] = [HeroClass.ROUGE, HeroClass.WARRIOR];
-        this.racesBonus[HeroRace.HOBBIT] = [HeroClass.ROUGE];
-        this.racesBonus[HeroRace.ELF] = [HeroClass.PRIEST,HeroClass.MAGE];
+        this.racesBonus[HeroRace.CIMMERIAN] = [HeroClass.WARRIOR];
+        this.racesBonus[HeroRace.CUSHITE] = [HeroClass.PRIEST];
+        this.racesBonus[HeroRace.STYGIJCZYK] = [HeroClass.MAGE];
+        this.racesBonus[HeroRace.ZAMORYJCZYK] = [HeroClass.ROUGE];
     }
 
     public CalculateBonusRace(race : HeroRace, heroClasses : Array<HeroClass>): number {
