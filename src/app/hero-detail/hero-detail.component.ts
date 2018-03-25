@@ -41,7 +41,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   onClassChange(classes: SelectListItem[]) {
-     //console.log(classes);
+    //console.log(classes);
     this.player.class = classes.map(c => c.value);
     this.calculateCurrentRaceBonus();
   }
@@ -51,6 +51,14 @@ export class HeroDetailComponent implements OnInit {
 
   delete(player: Player): void {
     this.remove.emit(player);
+  }
+
+  changeLevel(player: Player, change: number) {
+    let p = player.level;
+    let l = p += (+change);
+    if (l < 1) return;
+    if (l > 10) return;
+    player.level = l;
   }
 
   get CurrentPower(): number {
