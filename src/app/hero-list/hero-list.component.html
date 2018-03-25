@@ -1,21 +1,20 @@
 <div>
-    <mat-form-field class="example-full-width">
-      <input #playerName 
-        matInput 
-        placeholder="Nazwa gracza" 
-        (keyup.enter)="add(playerName.value); playerName.value=''">
-    </mat-form-field>
-    <button (click)="add(playerName.value); playerName.value=''" 
-      mat-raised-button 
-      color="primary">Dodaj
-    </button>
+  <mat-form-field class="example-full-width">
+    <input #playerName matInput placeholder="Nazwa gracza" (keyup.enter)="add(playerName.value); playerName.value=''">
+  </mat-form-field>
+  <button (click)="add(playerName.value); playerName.value=''" mat-raised-button color="primary">Dodaj
+  </button>
 </div>
-<div fxLayout="row wrap" fxLayoutAlign="space-around start">
-  <div *ngFor="let player of players">
-    <app-hero-detail 
-      [player]="player"
-      (remove)="remove($event)" >
-    </app-hero-detail>    
+<div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="25px">
+  <div fxFlex="calc(66%-25px)">
+    <div fxLayout="column" fxLayoutGap="20px">
+      <div *ngFor="let player of players">
+        <app-hero-detail [player]="player" (remove)="remove($event)">
+        </app-hero-detail>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="calc(33%-25px)">
+    <!-- <app-monster-fight [player]="current"></app-monster-fight> -->
   </div>
 </div>
-<!-- <div><app-monster-fight [player]="current"></app-monster-fight></div> -->

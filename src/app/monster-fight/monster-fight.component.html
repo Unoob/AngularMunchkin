@@ -1,5 +1,35 @@
 <div *ngIf="player">
-  <label>{{player.totalScore()}}</label>:<label><input [(ngModel)]="monster" placeholder="0"></label>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Pojedynek {{player.name}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{monsterStrength}}:{{player.power}}={{fightResult}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field>
+          <input matInput
+            placeholder="Siła potwora"
+            type="number"
+            [(ngModel)]="monster"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput
+            placeholder="Zbłąkany potwór"
+            type="number"
+            [(ngModel)]="strayMonster"/>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="defeat()">pokonaj</button>
+    </mat-card-actions>
+  </mat-card>
   <label>Wynik: {{duel()}}</label>
-  <button (click)="defeat()">pokonaj</button>
+  
 </div>

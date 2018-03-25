@@ -41,7 +41,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   onClassChange(classes: SelectListItem[]) {
-    //console.log(classes);
+     //console.log(classes);
     this.player.class = classes.map(c => c.value);
     this.calculateCurrentRaceBonus();
   }
@@ -54,7 +54,8 @@ export class HeroDetailComponent implements OnInit {
   }
 
   get CurrentPower(): number {
-    return this.player.level + this.eqPower + this.raceBonus;
+    this.player.power = this.player.level + this.eqPower + this.raceBonus;
+    return this.player.power;
   }
 
   private calculateCurrentRaceBonus() {

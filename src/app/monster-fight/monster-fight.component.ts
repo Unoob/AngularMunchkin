@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Player } from '../models/player';
 
-enum FightResult{
-  WIN,LOSE,TIE
+enum FightResult {
+  WIN, LOSE, TIE
 }
 @Component({
   selector: 'app-monster-fight',
@@ -10,30 +10,35 @@ enum FightResult{
   styleUrls: ['./monster-fight.component.css']
 })
 export class MonsterFightComponent implements OnInit {
-  @Input()player:Player;
-  monster:number;
-  monsterModify:number;
-  playerModify:number;
+  @Input() player: Player;
+  monster: number = null;
+  strayMonster: number = null;
+  monsterModify: number;
+  playerModify: number;
   constructor() { }
 
   ngOnInit() {
   }
-  private fightResult():FightResult{
-    let monster = (+this.monster) + (+this.monsterModify||0);
-    let player =0; //this.player.totalScore() + (+this.playerModify||0);
-    console.log(monster);
-    if(player === monster){
+
+  get monsterStrength(): number {
+    return this.monster + this.strayMonster;
+  }
+  get fightResult(): FightResult {
+    let monster = this.monsterStrength;
+    let player = this.player.power;
+    //console.log(monster);
+    if (player === monster) {
       return FightResult.TIE;
     }
     return player > monster ? FightResult.WIN : FightResult.LOSE;
   }
-  duel():string{
+  duel(): string {
     console.log('duel')
-    return this.fightResult()+'';
+    return this.fightResult + '';
   }
 
-  defeat(){
-    if(this.fightResult()!==FightResult.WIN)return;
+  defeat() {
+    if (this.fightResult !== FightResult.WIN) return;
     this.player.level++;
 
   }
