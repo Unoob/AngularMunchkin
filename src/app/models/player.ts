@@ -11,4 +11,5 @@ export class Player {
     race: number[] = [];
     class: number[] = [];
     power: number = this.level;
+    genre: boolean = true;
 }

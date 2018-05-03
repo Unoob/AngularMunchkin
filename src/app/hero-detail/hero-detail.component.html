@@ -28,10 +28,21 @@
   <mat-card-actions>
     <button mat-button
     (click)="delete(player)">Usuń</button>
-    <button mat-button
-    (click)="changeLevel(player,1)">Poziom+</button>
-    <button mat-button
-    (click)="changeLevel(player,-1)">Poziom-</button>
+    <button mat-icon-button
+    title="Zyskaj level"
+    (click)="changeLevel(player,1)">
+      <mat-icon aria-label="upgrade level">exposure_plus_1</mat-icon>
+    </button>
+    <button mat-icon-button
+    title="Strać level"
+    (click)="changeLevel(player,-1)">
+      <mat-icon arial-label="downgrade level">exposure_neg_1</mat-icon>
+    </button>
+    <button mat-icon-button
+    (click)="player.genre=!player.genre">
+      <mat-icon aria-label="gender icon" *ngIf="player.genre" svgIcon="gender-male"></mat-icon>
+      <mat-icon aria-label="gender icon" *ngIf="!player.genre" svgIcon="gender-female"></mat-icon>
+    </button>
   </mat-card-actions>
   <!-- <img height="200" src="../../assets/content/mage.jpg"> -->
 </mat-card>
